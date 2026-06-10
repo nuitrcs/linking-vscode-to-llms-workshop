@@ -41,7 +41,8 @@ Alternative prompt with less guidnace on what error handling to include:
 ```
 Here is a Python script that reads a CSV and generates a scatter plot: @create_penguin_scatter.py .
 
-Modify the script to add error handling.  The script should print a clear, helpful error message for each case and exit gracefully rather than crashing. Do not change the plotting logic.
+Modify the script to add error handling.  The script should print a clear, helpful error message 
+for each case and exit gracefully rather than crashing. Do not change the plotting logic.
 ```
 
 
