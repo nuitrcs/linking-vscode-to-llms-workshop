@@ -1,8 +1,8 @@
 # Test your LLM agents 
 
-This file provides a series of exercises meant to test your LLM coding agents.   Each exercise uses the same data file and asks for increasingly harder tasks.  For each exercise, I provide a starting prompt.  Please start with this, but feel free to modify the prompt afterwards as necessary to try to achieve the desired result.  Try these exercises with different LLM agents to get a better understanding of their capabilities and limitations.
+This file provides a series of exercises meant to test your LLM coding agents.   Each exercise uses the same data file and asks for increasingly harder tasks.  For each exercise, I provide a starting prompt.  Please start with this, but feel free to modify the prompt afterwards as necessary to try to achieve the desired result.  Try these exercises with different LLM agents (both local and cloud) to get a better understanding of their capabilities and limitations.
 
-These exercises use the standard [Palmer Penguins dataset0(https://allisonhorst.github.io/palmerpenguins/), i.e. the `penguins.csv` file included here.  Each exercise asks the LLM to work in Python.
+These exercises use the standard [Palmer Penguins dataset](https://allisonhorst.github.io/palmerpenguins/), i.e. the `penguins.csv` file included here.  Each exercise asks the LLM to work in Python.
 
 *Note*: In the example prompts below, you will see `@` symbols.  If you are using the Continue extension in VS Code, these are indications to use the `@` feature (you will have to manually replace that portion of the prompt below within the chat).  If you are not using Continue, you should delete the `@` symbol. 
 
