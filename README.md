@@ -259,7 +259,7 @@ You may be running on CPU instead of GPU. This is okay for the workshop but expe
 **Out of memory errors:**
 Try a smaller model. `qwen2.5-coder:1.5b` is a lightweight option for autocomplete on machines with limited memory.
 
----
+
 
 ## 9. Useful Links
 
