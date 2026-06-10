@@ -4,7 +4,7 @@ This file provides a series of exercises meant to test your LLM coding agents.  
 
 These exercises use the standard [Palmer Penguins dataset](https://allisonhorst.github.io/palmerpenguins/), i.e. the `penguins.csv` file included here.  Each exercise asks the LLM to work in Python.
 
-*Note*: In the example prompts below, you will see `@` symbols.  If you are using the Continue extension in VS Code, these are indications to use the `@` feature (you will have to manually replace that portion of the prompt below within the chat).  If you are not using Continue, you should delete the `@` symbol. 
+> **Note:** In the example prompts below, you will see `@` symbols.  If you are using the Continue extension in VS Code, these are indications to use the `@` feature (you will have to manually replace that portion of the prompt below within the chat).  If you are not using Continue, you should delete the `@` symbol. 
 
 
 ## Exercises
