@@ -145,7 +145,7 @@ Models vary in size (number of parameters), capability, and the hardware they re
 - **Chat/instruction models** — for conversation and agentic tasks (these need tool-calling support for agent mode)
 - **Embedding models** — used by Continue for code search and context retrieval
 
-**A note on VRAM:** Larger models require more GPU memory. If you're running on a laptop with limited GPU memory (e.g., 8 GB), stick to 7–9B parameter models. If you have no discrete GPU, models will run on CPU — they'll work, just more slowly.
+> **A note on VRAM:** Larger models require more GPU memory. If you're running on a laptop with limited GPU memory (e.g., 8 GB), stick to 7–9B parameter models. If you have no discrete GPU, models will run on CPU — they'll work, just more slowly.
 
 ### 5.2 Pull the Workshop Models
 
@@ -201,7 +201,7 @@ In the Copilot Chat panel, click the model name at the top to open the model pic
 
 Select a model to route your Copilot Chat requests to your local Ollama instance. You can switch between local and cloud models at any time from the same picker.
 
-> **Agent mode note:** Not all Ollama models support tool calling, which is required for agent mode (where Copilot can autonomously read files, run terminal commands, and edit code). Models without tool-calling support won't appear in the agent mode model picker. 
+> **A note on Agent mode:** Not all Ollama models support tool calling, which is required for agent mode (where Copilot can autonomously read files, run terminal commands, and edit code). Models without tool-calling support won't appear in the agent mode model picker. 
 
 
 
@@ -233,7 +233,7 @@ The config file tells Continue:
 
 All three point to your local Ollama instance, so nothing leaves your machine.
 
-*Note:* Only models with tool capabilities should be used in the agent mode.  Other models can be used in the chat mode.
+> **Note:** Only models with tool capabilities should be used in the agent mode.  Other models can be used in the chat mode.
 
 ### 7.4 Verify the Connection
 
