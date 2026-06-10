@@ -1,0 +1,59 @@
+name: Local Ollama Config
+version: 1.0.0
+schema: v1
+
+models:
+  # --- Chat / Agent Model ---
+  # AUTODETECT tells Continue to discover all models currently running in Ollama.
+  # You can also replace AUTODETECT with a specific model name, e.g. qwen3.5:9b
+  - name: Autodetect
+    provider: ollama
+    # The address of the local Ollama API server.
+    # On Windows and macOS native installs, Ollama runs automatically on this address.
+    apiBase: http://localhost:11434
+    model: AUTODETECT
+    defaultCompletionOptions:
+      # Maximum number of tokens (roughly: words/subwords) in the combined prompt + response.
+      # Higher values let the model see more context, but use more memory and are slower.
+      # 16384 is a good balance for most 7–9B models. Reduce if you run out of memory.
+      contextLength: 16384
+    roles:
+      - chat        # Used in the Continue chat panel
+      - edit        # Used when asking Continue to edit a selection
+      - apply       # Used to apply suggested changes to a file
+      - summarize   # Used for generating commit messages and summaries
+    capabilities:
+      - tool_use    # This model supports tool/function calling, required for agent mode
+
+  # --- Embeddings Model ---
+  # Used to index your codebase so Continue can search it semantically.
+  # nomic-embed-text is a small, fast model purpose-built for embeddings.
+  # This enables the @codebase context provider below.
+  - name: embeddingsProvider
+    provider: ollama
+    apiBase: http://localhost:11434
+    model: nomic-embed-text
+    roles:
+      - embed       # Only used for generating embeddings, not for chat
+
+  # --- Autocomplete Model ---
+  # A small, fast model used for inline code suggestions as you type.
+  # qwen2.5-coder:1.5b is lightweight and optimized for code completion.
+  # Keep this model small — low latency matters more than capability here.
+  - name: Fast Autocomplete
+    provider: ollama
+    apiBase: http://localhost:11434
+    model: qwen2.5-coder:1.5b
+    roles:
+      - autocomplete  # Appears as ghost text in the editor; press Tab to accept
+
+# --- Context Providers ---
+# These define what sources you can pull into a chat using @ mentions.
+context:
+  - provider: code        # Reference specific functions/classes with @code
+  - provider: docs        # Reference documentation websites with @docs
+  - provider: diff        # Inject your current git diff into the chat
+  - provider: terminal    # Inject the contents of your VS Code terminal
+  - provider: problems    # Inject VS Code's Problems panel (errors, warnings)
+  - provider: folder      # Reference an entire folder with @folder
+  - provider: codebase    # Semantic search across your whole repo (uses embeddings model above)

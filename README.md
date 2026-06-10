@@ -158,7 +158,7 @@ ollama pull qwen3.5:9b
 
 **Code-focused model:**
 ```bash
-ollama pull qwen2.5-coder:7b
+ollama pull qwen2.5-coder:1.5b
 ```
 
 **Embedding model (used by Continue for codebase indexing):**
@@ -227,11 +227,13 @@ Copy the contents of the `config.yaml` file from this workshop into your `~/.con
 ### 7.3 What the Config Does
 
 The config file tells Continue:
-- Which Ollama model to use for **chat** (conversational assistance)
+- Which Ollama model to use for **chat/agent** (conversational assistance)
 - Which Ollama model to use for **autocomplete** (inline code suggestions as you type)
 - Which Ollama model to use for **embeddings** (indexing your codebase for context)
 
 All three point to your local Ollama instance, so nothing leaves your machine.
+
+*Note:* Only models with tool capabilities should be used in the agent mode.  Other models can be used in the chat mode.
 
 ### 7.4 Verify the Connection
 
@@ -257,7 +259,7 @@ Close and reopen your terminal after installation so your PATH is refreshed. If 
 You may be running on CPU instead of GPU. This is okay for the workshop but expect higher latency. Smaller models (1.5B–3B) will be faster if speed is a concern.
 
 **Out of memory errors:**
-Try a smaller model. `qwen2.5-coder:1.5b` is a lightweight option for autocomplete on machines with limited memory.
+Try a smaller model.  If using Continue, try a smaller context in the `config.yaml` file.
 
 
 
