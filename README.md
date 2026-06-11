@@ -212,7 +212,7 @@ To explore other models, visit https://ollama.com/search. Look for the **Tools**
 
 After downloading these models, you can test that your ollama system works by typing the following command in your VS Code terminal:
 ```bash
-ollama run qwen3.5:9b "hi"
+ollama run qwen2.5-coder:1.5b "hi"
 ```
 
 (After the model loads, you should see a response from the LLM in the terminal.)
