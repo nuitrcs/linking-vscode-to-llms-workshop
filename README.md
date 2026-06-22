@@ -79,7 +79,7 @@ Official docs: https://docs.claude.com/en/docs/claude-code/overview
  
 **On macOS / Linux**, run in your terminal:
 ```bash
-curl -fsSL https://claude.ai/install.sh | sh
+curl -fsSL https://claude.ai/install.sh | bash
 ```
  
 **On Windows**, run in a PowerShell terminal:
