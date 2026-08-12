@@ -2,23 +2,32 @@
 
 Get your development environment ready to take full advantage of today’s AI coding assistants. In this hands-on workshop, you’ll learn how to connect VS Code to both cloud-based models (including Claude Code and GitHub Copilot) and locally hosted models using Ollama, giving you control over performance, cost, and data privacy. Through guided exploration, you’ll compare local and cloud approaches, building a clear understanding of when each is most effective and how to incorporate them into your everyday coding workflow.
 
-
-## Installation instructions
+# Installation instructions
 
 This guide walks you through setting up a complete AI development environment on your computer working through VS Code.  We will start with setting up the foundation, and then there are many options of which AI tool(s) you can explore.
 
 Work through the sections in order. Each section builds on the previous one.
 
-## Required steps:
+**Contents:**
+- [Required steps](#required-steps)
+- [Optional steps (choose at least one)](#optional-steps-choose-at-least-one)
+  - [Option A: Claude Code](#option-a-install-claude-code-if-you-have-a-pro-or-higher-account)
+  - [Option B: GitHub Copilot Chat](#option-b-github-copilot-chat-vs-code-extension)
+  - [Option C: Ollama (local models)](#option-c-ollama-for-access-to-local-models)
+  - [Option D: Continue Extension](#option-d-use-local-ollama-models-through-the-continue-extension)
+- [Troubleshooting](#troubleshooting)
+- [Useful Links](#useful-links)
 
-### 1. Create a (free) GitHub account, if you do not already have one
+# Required steps
+
+## 1. Create a (free) GitHub account, if you do not already have one
 
 VS Code is well integrated with GitHub, and we will use GitHub Copilot Chat as one of the interfaces to work with agents.  GitHub Copilot's free tier lets you use the model picker, including for local Ollama models. If you don't already have a GitHub account, create one at: https://github.com/join
 
 A free account is sufficient for this workshop. You do not need a paid Copilot subscription.
 
 
-### 2. Install VS Code
+## 2. Install VS Code
 
 VS Code is development environment that we will focus on here.  This software includes an editor, many different "Extensions" (see below), and is well integrated with GitHub.  You can use VS Code with our without AI agents.
 
@@ -34,13 +43,13 @@ Within VS Code, there are many "Extensions" that extend the software's functiona
 
 
 
-### 3. Install Python via Miniforge 
+## 3. Install Python via Miniforge 
  
 > **macOS / Linux users:** Python should be available by default on your system. Therefore you have the option to skip this step.  However you may benefit from using this version of Python rather than your system Python if you plan to code heavily.
 
-If you do not already have Python installed (or are unsure if you do), please instal Python using  **Miniforge**, a lightweight installer that includes Python and the `conda` package manager. 
+If you do not already have Python installed (or are unsure if you do), please install Python using  **Miniforge**, a lightweight installer that includes Python and the `conda` package manager. 
  
-Installers are avilable here:  https://github.com/conda-forge/miniforge/releases/latest — download the file named **Miniforge3-Windows-x86_64.exe**
+Installers are available here:  https://github.com/conda-forge/miniforge/releases/latest — download the installer that matches your operating system (Windows, macOS, or Linux).
  
 Run the installer. The default settings are fine, with one exception: on the **Advanced Options** screen, check **"Add Miniforge3 to my PATH environment variable"**. This ensures Python and conda are accessible from the terminal.
  
@@ -56,13 +65,13 @@ This should print the version number.  If this returns an error, you may need to
  
 > **Want to learn more about managing Python environments with conda?** We run a separate workshop on this topic — ask us for details.
 
-## Optional steps (choose at least one)
+# Optional steps (choose at least one)
 
 The following sections provide instructions on how to install and access different AI coding agents.  You can install all of these and test for yourself which solution is best.  You are also welcome to only install one (or just one at a time).
 
-### Option A: Install Claude Code, if you have a Pro (or higher) account
+## Option A: Install Claude Code, if you have a Pro (or higher) account
 
-### A.0 Windows Prerequisite : Git
+### A.0 Windows Prerequisite: Git
 
 > **macOS / Linux users:** You should not need git for this workshop. Skip this step.
 
@@ -132,7 +141,7 @@ Once authenticated, Claude Code can run in VS Code's integrated terminal or via 
 
 To run from the command line, open a terminal in VS Code (`` Ctrl+` `` or **Terminal → New Terminal**), navigate to your project folder, and type `claude` to start a session.
 
-### A.5 Install the Claude Code Extension for VS Code 
+### A.5 Install the Claude Code Extension for VS Code
 
 Claude may have already installed this extension during the previous steps.  Search for **"Claude Code for VS Code"** in the extensions panel.  The publisher should be **Anthropic** .  
 
@@ -141,7 +150,7 @@ Marketplace link: https://marketplace.visualstudio.com/items?itemName=anthropic.
 If you see an install button, that means this extension is not already installed; click that button if available. After installation is complete, you can use Claude Code from the VS Code side-bar chat interface. The Claude Code extension has an (orange) asterisk shape; click on that icon to open the chat sidebar.
 
 
-### Option B: GitHub Copilot Chat VS Code Extension 
+## Option B: GitHub Copilot Chat VS Code Extension 
 
 GitHub Copilot Chat is well integrated into VS Code and may be displayed in your version as simply "Chat" in the VS Code top bar.  This Extension allows users to connect to various AI models either through GitHub or that are installed locally on your computer (e.g., through Ollama, see Option C below).
 
@@ -157,10 +166,10 @@ After installing, you'll be prompted to sign in with your GitHub account. Follow
 
 ### B.2 Check available models
 
-In the Copilot Chat panel, click the **Pick Model** button in the bottom of the chat panel (which is likely populated by either "Auto" or a model name). You may already have access to some models through your GitHub account.  (Depending on your account type, you may see different models and have different usage limits.).  The following secion provides information on connecting the Extension to local models.
+In the Copilot Chat panel, click the **Pick Model** button in the bottom of the chat panel (which is likely populated by either "Auto" or a model name). You may already have access to some models through your GitHub account.  (Depending on your account type, you may see different models and have different usage limits.).  The following section provides information on connecting the Extension to local models.
 
 
-### Option C: Ollama for access to local models
+## Option C: Ollama for access to local models
 
 Ollama lets you download and run open-source LLMs locally on your machine. It runs as a background service and exposes a local API that VS Code extensions can talk to.
 
@@ -172,6 +181,8 @@ Models vary in size (number of parameters), capability, and the hardware they re
 - **Embedding models** — used by Continue for code search and context retrieval
 
 > **A note on VRAM:** Larger models require more GPU memory. If you're running on a laptop with limited GPU memory (e.g., 8 GB), stick to 7–9B parameter models. If you have no discrete GPU, models will run on CPU — they'll work, just more slowly.
+
+In this workshop we will use Ollama to launch the model and then interact with the models via a "harness" installed as a VS Code extension.  We include instructions below for connecting Ollama models to GitHub Copilot Chat and Continue.  Though we don't discuss it here, you could also use Claude Code as a harness and connect to an Ollama model instead of Claude.  There are *many* other harnesses that you could explore for the command line and/or VS Code Extensions.   
 
 ### C.1 Install Ollama
 
@@ -188,7 +199,7 @@ ollama --version
 
 ### C.2 Pull the Workshop Models
 
-Run these commands to download the models we'll use in this workshop. Each model is downloaded once and cached locally.  I have suggestions on models below.  Note that these downloads will take time and larger models will require multiple GB of storage space.  
+Run these commands to download the models we'll use in this workshop. Each model is downloaded once and cached locally.  Suggested models are listed below.  Note that these downloads will take time and larger models will require multiple GB of storage space.  
 
 **Chat/agent model (good all-around, supports tool calling):**
 ```bash
@@ -220,11 +231,11 @@ ollama run qwen2.5-coder:1.5b "hi"
 
 > **Note on Ollama running in the background:** After installation, Ollama starts automatically and runs quietly in the background. This is convenient for the workshop, but you may want to stop it when not in use since it holds system resources. To stop it, right-click the Ollama icon in the **system tray** (Windows, bottom-right of taskbar) or click the Ollama icon in the **menu bar** (macOS) and select **Quit Ollama**. To start it again, just relaunch Ollama from the Start menu (Windows) or Applications folder (macOS). To prevent it from starting automatically at login, disable it in **Task Manager → Startup Apps** (Windows) or **System Settings → General → Login Items** (macOS).
 
-### C.3 Connect Ollama to GitHub Copilot Chat
+### C.4 Connect Ollama to GitHub Copilot Chat
 
 If you have not already install the GitHub Copilot Chat Extension, please see Option B above.  VS Code's GitHub Copilot Chat can use your local Ollama models through its built-in model picker. This requires VS Code 1.113+ and GitHub Copilot Chat 0.41.0+.
 
-#### Quick Setup (Recommended)
+**Quick Setup (Recommended)**
 
 Ollama provides a one-command setup for VS Code. In your terminal:
 ```bash
@@ -233,7 +244,7 @@ ollama launch vscode
 
 This will print a list of recommended models and configure VS Code automatically. Follow any on-screen instructions.  The models we installed will likely be at the bottom of the list (under "More").  
 
-#### Manual Setup
+**Manual Setup**
 
 If you prefer to configure manually:
 
@@ -243,7 +254,7 @@ If you prefer to configure manually:
 4. If your models don't appear in the picker, click the **Unhide** button in the model selector.
 
 
-### C.4 Using Local Models in GitHub Copilot Chat
+### C.5 Using Local Models in GitHub Copilot Chat
 
 In the Copilot Chat panel, click the **Pick Model** button in the bottom of the chat panel (which is likely populated by either "Auto" or a model name). Find and select the Ollama you want to use.
 
@@ -252,7 +263,7 @@ The selected model name will now show in the bottom of the chat.  If you selecte
 > **A note on Agent mode:** Not all Ollama models support tool calling, which is required for agent mode (where Copilot can autonomously read files, run terminal commands, and edit code). Models without tool-calling support won't appear in the agent mode model picker. 
 
 
-### Option D: Use local Ollama models through the Continue Extension
+## Option D: Use local Ollama models through the Continue Extension
 
 If you like Ollama but don't like GitHub Copilot Chat, you can use a different "harness" for your models.  The Continue Extension is one option that works well.  First, you will need to install Ollama following Option C above.  
 
@@ -263,7 +274,7 @@ Search for **"Continue"** and install it. The publisher should be **Continue**.
 
 Marketplace link: https://marketplace.visualstudio.com/items?itemName=Continue.continue
 
-Continue will add a new icon to your left sidebar (a broken octogon logo). You'll configure it to use your local Ollama models in a later step.
+Continue will add a new icon to your left sidebar (a broken octagon logo). You'll configure it to use your local Ollama models in a later step.
 
 ### D.2 Connect Ollama to Continue
 
@@ -275,9 +286,9 @@ Open Continue's configuration file from VS Code: click the Continue icon in the 
 
 ### D.4 Apply the Workshop Config
 
-Copy the contents of the `config.yaml` file from this workshop into your open `config.yaml` file iun VS Code (replacing the text that is there). Save the file — Continue reloads automatically.  
+Copy the contents of the `config.yaml` file from this workshop into your open `config.yaml` file in VS Code (replacing the text that is there). Save the file — Continue reloads automatically.  
 
-#### What the Config Does
+**What the Config Does**
 
 The config file tells Continue:
 - Which Ollama model to use for **chat/agent** (conversational assistance)
@@ -296,16 +307,31 @@ For autocomplete, open any Python file, put your cursor mid-function, and pause 
 
 
 
-## Troubleshooting
+# Troubleshooting
+
+**An installer won't run, or asks for administrator permissions you don't have:**
+On a university- or company-managed laptop, IT policy may block installers for VS Code, Git, Miniforge, or Ollama.  If you encounter this issue, let the instructor know.  There may be a user-level installation that does not require administrator permissions.  Another solution could be for you to work with partner in the workshop who does have the required permissions on their computer and then check with our IT administrator after the workshop to install the software.
+
+**"python" or "conda" isn't recognized after installing Miniforge:**
+Close and reopen your terminal (or all of VS Code) so the updated PATH takes effect, then try `python --version` again.
+
+**Claude Code says "command not found":**
+Close and reopen your terminal after installation so your PATH is refreshed. If it still doesn't work, try opening VS Code's integrated terminal and running `claude --version` there.
+
+**Claude Code's browser sign-in window didn't open, or the one-time code expired:**
+Run `claude` again in your terminal to generate a fresh login link and code — codes expire quickly, so paste it in as soon as it appears.
+
+**GitHub Copilot Chat doesn't appear after installing the extension:**
+Reload the VS Code window (Command Palette → "Developer: Reload Window") and make sure you're signed in to GitHub — check the Accounts icon in the bottom-left corner of VS Code.
 
 **Ollama models don't appear in Copilot Chat:**
 Make sure Ollama is running. On macOS/Linux you can check with `pgrep ollama` or look for the Ollama icon in your menu bar. Restart VS Code after starting Ollama.
 
+**`ollama pull` is very slow or seems stuck:**
+Model downloads are several GB; on congested workshop Wi-Fi this can take a while. Let it run while trying other steps above. 
+
 **Continue shows a connection error:**
 Check that Ollama is running and that the model name in your `config.yaml` exactly matches what `ollama list` shows.
-
-**Claude Code says "command not found":**
-Close and reopen your terminal after installation so your PATH is refreshed. If it still doesn't work, try opening VS Code's integrated terminal and running `claude --version` there.
 
 **Model responses are very slow:**
 You may be running on CPU instead of GPU. This is okay for the workshop but expect higher latency. Smaller models (1.5B–3B) will be faster if speed is a concern.
@@ -315,17 +341,18 @@ Try a smaller model.  If using Continue, try a smaller context in the `config.ya
 
 
 
-## Useful Links
+# Useful Links
 
 | Resource | URL |
 |----------|-----|
-| VS Code download | https://code.visualstudio.com/download |
 | GitHub sign-up | https://github.com/join |
-| Copilot Chat extension | https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat |
-| Continue extension | https://marketplace.visualstudio.com/items?itemName=Continue.continue |
+| VS Code download | https://code.visualstudio.com/download |
+| Miniforge (Python) installer | https://github.com/conda-forge/miniforge/releases/latest |
+| Git for Windows | https://git-scm.com |
 | Claude Code docs | https://docs.claude.com/en/docs/claude-code/overview |
-| Node.js LTS download | https://nodejs.org |
-| Ollama download | https://ollama.com/download |
+| Copilot Chat extension | https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat |
 | Ollama model library | https://ollama.com/search |
+| Ollama download | https://ollama.com/download |
 | Ollama VS Code integration docs | https://docs.ollama.com/integrations/vscode |
+| Continue extension | https://marketplace.visualstudio.com/items?itemName=Continue.continue |
 | Continue documentation | https://docs.continue.dev |
