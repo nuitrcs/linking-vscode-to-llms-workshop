@@ -23,7 +23,7 @@ This guide walks you through setting up a complete AI development environment on
 - **AI model** — the underlying LLM that actually generates responses within a harness. We provide instructions for **Claude** (Anthropic's cloud models) as well as local models run through **Ollama**.
 - **Coding agent** — the combination of a harness and an AI model, acting together to read/write code, run commands, and complete tasks. When we say "AI coding assistant," we mean a coding agent.
 
-**Notes on tools we don't cover here:**
+**Notes on tools we won't cover here:**
 - **ChatGPT**: OpenAI's Codex has an official VS Code extension ([openai.chatgpt](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt)) that works much like Claude Code — an agent sidebar that reads your files, edits code, and runs terminal commands.  (Depending on your account's setting, you may also have access to OpenAI models within GitHub Copilot Chat; see Option C).
 
 - **Gemini**: Google's Gemini Code Assist also has a VS Code extension with an agent mode, but Google has pushed individual/free-tier users toward a separate agent-first editor called Antigravity (itself a VS Code fork) as of June 2026, so free users will likely need to use that standalone app rather than a VS Code extension to get Gemini's full agentic features.  (Depending on your account's setting, you may also have access to Gemini models within GitHub Copilot Chat;see Option C).
