@@ -8,6 +8,7 @@ This guide walks you through setting up a complete AI development environment on
 
 
 **Contents:**
+- [Safety](#safety)
 - [Required steps](#required-steps)
 - [Optional steps (choose at least one)](#optional-steps-choose-at-least-one)
   - [Option A: Claude Code](#option-a-install-claude-code-if-you-have-a-pro-or-higher-account)
@@ -25,8 +26,23 @@ This guide walks you through setting up a complete AI development environment on
 
 **Notes on tools we won't cover here:**
 - **ChatGPT**: OpenAI's Codex has an official VS Code extension ([openai.chatgpt](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt)) that works much like Claude Code — an agent sidebar that reads your files, edits code, and runs terminal commands.  (Depending on your account's setting, you may also have access to OpenAI models within GitHub Copilot Chat; see Option C).
-
 - **Gemini**: Google's Gemini Code Assist also has a VS Code extension with an agent mode, but Google has pushed individual/free-tier users toward a separate agent-first editor called Antigravity (itself a VS Code fork) as of June 2026, so free users will likely need to use that standalone app rather than a VS Code extension to get Gemini's full agentic features.  (Depending on your account's setting, you may also have access to Gemini models within GitHub Copilot Chat;see Option C).
+
+# Safety
+
+> **Important Note:** Claude Code, GitHub Copilot Chat, and Continue can all run in an "agent mode" that reads, edits, and creates files — and can run terminal commands — on your behalf. Before you start installing anything, please read the points below so you know what these tools can actually do on your computer.
+
+- **Ask before acting:** Each of these tools has a setting that pauses the agent and asks for your approval before it modifies a file or runs a command. At least while you're learning how these tools behave, keep this "ask before acting" setting turned on.  (Upon installation, it should be the default in all three tools, but be sure to check.) This gives you a chance to review each proposed change *before* it happens, so you're never surprised by a file being edited, deleted, or a command running without your knowledge.
+
+- **These agents are not limited to your open project folder:** Opening a single folder in VS Code does not sandbox an agent to that folder. Claude Code, and the agent modes of Copilot Chat and Continue, run as ordinary programs under your own user account — the same account you're logged into your computer with. That means they can read, write, or delete any file your account has permission to touch (e.g., other folders in your Documents, Downloads, or home directory), and terminal commands they run can do anything your normal terminal commands can do (install software, access the network, etc.). The "ask before acting" setting is your main protection here, since it shows you the exact file path or command *before* it runs; always check that it's touching only what you expect.
+
+- **Your code and files may leave your machine:** When you use a cloud model (Claude, or a cloud model through GitHub Copilot Chat), the contents of files the agent reads, including any it opens on its own to gather context, are sent to that provider's servers. Avoid pointing cloud-based agents at proprietary, confidential, or otherwise sensitive codebases unless you've confirmed that's allowed. If keeping everything fully on your machine matters, use a local Ollama model instead (Option B).
+
+- **Watch out for secrets and credentials:** Agents may read and include the contents of any file in their context, including ones you didn't intend to share, like `.env` files, config files with API keys, or credentials. Avoid keeping secrets in plaintext in a project an agent has access to, and double-check any command or file the agent wants to read or send before approving it.
+
+- **Use git as a safety net:** Commit your work often (or work in a git repository from the start) so that if an agent makes an unwanted change, you can easily see what changed (`git diff`) and revert it (`git checkout`/`git restore`). This is good practice generally, but especially valuable when a tool is editing files on your behalf.
+
+- **Be extra cautious with "auto-approve" / "yolo" modes:** Some of these tools offer a mode that skips the approval step entirely and lets the agent act fully autonomously. This can be convenient once you're experienced, but we recommend avoiding it for this workshop and until you have a good feel for how these agents behave.
 
 # Required steps
 
