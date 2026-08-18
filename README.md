@@ -16,7 +16,7 @@ This guide walks you through setting up a complete AI development environment on
   - [Option C: GitHub Copilot Chat](#option-c-github-copilot-chat-vs-code-extension)
   - [Option D: Continue Extension](#option-d-use-local-ollama-models-through-the-continue-extension)
 - [Troubleshooting](#troubleshooting)
-- [Usage Limits](#usage-limits)
+- [Usage Limits and System Requirements](#usage-limits-and-system-requirements)
 - [Useful Links](#useful-links)
 
 **A few terms used throughout this guide:**
@@ -35,9 +35,13 @@ This guide walks you through setting up a complete AI development environment on
 
 - **Ask before acting:** Each of these tools has a setting that pauses the agent and asks for your approval before it modifies a file or runs a command. At least while you're learning how these tools behave, keep this "ask before acting" setting turned on.  (Upon installation, it should be the default in all three tools, but be sure to check.) This gives you a chance to review each proposed change *before* it happens, so you're never surprised by a file being edited, deleted, or a command running without your knowledge.
 
+- **AI output can be wrong:** These tools can misunderstand what you asked for, invent functions or packages that don't actually exist, or write code that runs but is subtly incorrect or insecure. Treat every suggestion as a draft from a fast but fallible collaborator. Read and test AI-generated code before trusting it.
+
 - **These agents are not limited to your open project folder:** Opening a single folder in VS Code does not sandbox an agent to that folder. Claude Code, and the agent modes of Copilot Chat and Continue, run as ordinary programs under your own user account — the same account you're logged into your computer with. That means they can read, write, or delete any file your account has permission to touch (e.g., other folders in your Documents, Downloads, or home directory), and terminal commands they run can do anything your normal terminal commands can do (install software, access the network, etc.). The "ask before acting" setting is your main protection here, since it shows you the exact file path or command *before* it runs; always check that it's touching only what you expect.
 
 - **Your code and files may leave your machine:** When you use a cloud model (Claude, or a cloud model through GitHub Copilot Chat), the contents of files the agent reads, including any it opens on its own to gather context, are sent to that provider's servers. Avoid pointing cloud-based agents at proprietary, confidential, or otherwise sensitive codebases unless you've confirmed that's allowed. If keeping everything fully on your machine matters, use a local Ollama model instead (Option B).
+
+- **Your data may be retained or used to train future models:** Beyond simply being transmitted to a provider's servers, cloud-based tools may retain your prompts and code, and depending on your account type, may use them to improve or train future models. Data-use terms often differ between consumer plans (e.g., Claude Pro/Max, GitHub Copilot Individual on the free tier) and paid business/API plans (e.g., Claude API accounts, GitHub Copilot Business/Enterprise), which more often include retention limits or training opt-outs. If this matters to you, check the specific data usage policy for your plan, or use a local Ollama model, where nothing ever leaves your machine.
 
 - **Watch out for secrets and credentials:** Agents may read and include the contents of any file in their context, including ones you didn't intend to share, like `.env` files, config files with API keys, or credentials. Avoid keeping secrets in plaintext in a project an agent has access to, and double-check any command or file the agent wants to read or send before approving it.
 
@@ -291,7 +295,7 @@ After installing, you'll be prompted to sign in with your GitHub account. Follow
 
 ### C.2 Check available models
 
-In the Copilot Chat panel, click the **Pick Model** button in the bottom of the chat panel (which is likely populated by either "Auto" or a model name). You may already have access to some models through your GitHub account.  (Depending on your account type, you may see different models and have different usage limits — see [Usage Limits](#usage-limits) below.)  The following section provides information on connecting the Extension to local models.
+In the Copilot Chat panel, click the **Pick Model** button in the bottom of the chat panel (which is likely populated by either "Auto" or a model name). You may already have access to some models through your GitHub account.  (Depending on your account type, you may see different models and have different usage limits — see [Usage Limits and System Requirements](#usage-limits-and-system-requirements) below.)  The following section provides information on connecting the Extension to local models.
 
 
 ## Option D: Use local Ollama models through the Continue Extension
@@ -372,15 +376,23 @@ Try a smaller model.  If using Continue, try a smaller context in the `config.ya
 
 
 
-# Usage Limits
+# Usage Limits and System Requirements
 
-Cloud-based coding agents are metered — running out of included usage can mean getting charged per token, or being throttled until your quota resets. Local models have no such limits, since everything runs on your own hardware.
+Cloud-based coding agents are metered and require an internet connection — running out of included usage can mean getting charged per token or being throttled until your quota resets, and you can't use them without a working connection. Local models have none of those constraints, but they do require your own hardware to be capable enough to run them well.
 
 - **Claude Code:** Usage is tied to your Anthropic plan (Pro, Max, or pay-as-you-go API access). Each plan includes a set amount of usage; once you exceed it, you may be rate-limited or, on an API-based plan, billed per token. Keep an eye on your usage/billing page on the Claude/Anthropic Console so you're not surprised by a charge.
 
 - **GitHub Copilot Chat:** Usage limits (including which models are available and how many "premium requests" you get) depend on your GitHub account type and plan. Check your usage under your GitHub account's Copilot settings, and be aware that some models may consume your quota faster than others.
 
 - **Ollama (local models):** Since these models run entirely on your own computer, there are no usage limits and no per-token charges — the only constraints are your hardware's speed and memory (see the VRAM note in [Option B](#option-b-ollama-for-access-to-local-models)).
+
+**Quick reference:**
+
+| Tool | Account needed | Cost | Internet required? |
+|------|-----------------|------|---------------------|
+| Claude Code | Paid Anthropic account (Pro, Max, or API) | Usage-based; may bill per token if you exceed your plan's included usage | Yes |
+| GitHub Copilot Chat | Free GitHub account (free tier is sufficient for this workshop) | Free tier available; paid tiers unlock more usage/models | Yes, unless routed to a local Ollama model (see [Option B](#option-b-ollama-for-access-to-local-models)) |
+| Ollama (local models) | None | Free — but you supply the hardware (RAM/VRAM, disk space) | No, once models are downloaded |
 
 # Useful Links
 
