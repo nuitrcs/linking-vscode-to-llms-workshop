@@ -16,6 +16,7 @@ This guide walks you through setting up a complete AI development environment on
   - [Option C: GitHub Copilot Chat](#option-c-github-copilot-chat-vs-code-extension)
   - [Option D: Continue Extension](#option-d-use-local-ollama-models-through-the-continue-extension)
 - [Troubleshooting](#troubleshooting)
+- [Usage Limits](#usage-limits)
 - [Useful Links](#useful-links)
 
 **A few terms used throughout this guide:**
@@ -290,7 +291,7 @@ After installing, you'll be prompted to sign in with your GitHub account. Follow
 
 ### C.2 Check available models
 
-In the Copilot Chat panel, click the **Pick Model** button in the bottom of the chat panel (which is likely populated by either "Auto" or a model name). You may already have access to some models through your GitHub account.  (Depending on your account type, you may see different models and have different usage limits.).  The following section provides information on connecting the Extension to local models.
+In the Copilot Chat panel, click the **Pick Model** button in the bottom of the chat panel (which is likely populated by either "Auto" or a model name). You may already have access to some models through your GitHub account.  (Depending on your account type, you may see different models and have different usage limits — see [Usage Limits](#usage-limits) below.)  The following section provides information on connecting the Extension to local models.
 
 
 ## Option D: Use local Ollama models through the Continue Extension
@@ -370,6 +371,16 @@ You may be running on CPU instead of GPU. This is okay for the workshop but expe
 Try a smaller model.  If using Continue, try a smaller context in the `config.yaml` file.
 
 
+
+# Usage Limits
+
+Cloud-based coding agents are metered — running out of included usage can mean getting charged per token, or being throttled until your quota resets. Local models have no such limits, since everything runs on your own hardware.
+
+- **Claude Code:** Usage is tied to your Anthropic plan (Pro, Max, or pay-as-you-go API access). Each plan includes a set amount of usage; once you exceed it, you may be rate-limited or, on an API-based plan, billed per token. Keep an eye on your usage/billing page on the Claude/Anthropic Console so you're not surprised by a charge.
+
+- **GitHub Copilot Chat:** Usage limits (including which models are available and how many "premium requests" you get) depend on your GitHub account type and plan. Check your usage under your GitHub account's Copilot settings, and be aware that some models may consume your quota faster than others.
+
+- **Ollama (local models):** Since these models run entirely on your own computer, there are no usage limits and no per-token charges — the only constraints are your hardware's speed and memory (see the VRAM note in [Option B](#option-b-ollama-for-access-to-local-models)).
 
 # Useful Links
 
