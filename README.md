@@ -110,6 +110,12 @@ The instructions here will install the Claude Code agent and plug it into VS Cod
 
 > **Note:** This option is likely only relevant if you have a Claude Pro (or higher) account.
 
+Claude Code is a command-line tool that acts as an AI coding agent in your terminal. It requires a paid Anthropic account (Claude Pro, Max, or API access).
+
+> **Note:** Claude Desktop (available at https://claude.ai/download) is a separate app — it's a graphical chat interface, not the CLI tool that we want for this workshop. Make sure you follow the steps below to install the Claude Code CLI tool.
+
+Official docs: https://docs.claude.com/en/docs/claude-code/overview
+
 ### Windows Prerequisite: Git
 
 > **macOS / Linux users:** You should not need git for this workshop. Skip this step.
@@ -119,11 +125,7 @@ Claude Code on Windows requires **Git for Windows**. If you don't already have i
 > **Note:** Git for Windows includes **Git Bash**, a terminal that supports the same commands as macOS/Linux. You can open it from the Start menu, or from within VS Code by opening a new terminal (`` Ctrl+` `` or **Terminal → New Terminal**) and selecting **Git Bash** from the dropdown (the `∨` arrow next to the `+` in the terminal panel).  You may need to close and reopen VS Code for the Git Bash terminal to become available.
 
 
-Claude Code is a command-line tool that acts as an AI coding agent in your terminal. It requires a paid Anthropic account (Claude Pro, Max, or API access).
 
-> **Note:** Claude Desktop (available at https://claude.ai/download) is a separate app — it's a graphical chat interface, not the CLI tool that we want for this workshop. Make sure you follow the steps below to install the Claude Code CLI tool.
-
-Official docs: https://docs.claude.com/en/docs/claude-code/overview
 
 
 ### Install Claude Code
@@ -167,7 +169,7 @@ Then try `claude --version` again in your terminal.
  
 ### Authenticate
  
-Run Claude Code for the first time, by executing this command in your terminal (see **A.2**):
+Run Claude Code for the first time, by executing this command in your terminal:
 ```bash
 claude
 ```
