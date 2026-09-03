@@ -4,8 +4,6 @@ This file provides a series of exercises meant to test your LLM coding agents.  
 
 These exercises use the standard [Palmer Penguins dataset](https://allisonhorst.github.io/palmerpenguins/), i.e. the `penguins.csv` file included here.  Each exercise asks the LLM to work in Python.
 
-> **Note:** In the example prompts below, you will see `@` symbols.  If you are using the Continue extension in VS Code, these are indications to use the `@` feature (you will have to manually replace that portion of the prompt below within the chat).  If you are not using Continue, you should delete the `@` symbol. 
-
 
 ## Exercises
 
@@ -21,12 +19,12 @@ These exercises use the standard [Palmer Penguins dataset](https://allisonhorst.
 
     Use seaborn and pandas. Keep the script simple and well-commented.
 
-    Save the script in a new file called create_penguin_scatter.py in my @local_agent_test directory.
+    Save the script in a new file called create_penguin_scatter.py.
     ```
 
 2. Ask the agent to add error handling to that existing script.  This exercise will test the agent's ability to interpret an existing Python script, make choices on how to implement tests, and use Tools to modify a file.  If you are using a local ollama LLM, you may benefit from starting a new conversation for this exercise to free up more context space.  Evaluate the resulting code yourself, and run it to check if the error handling works. 
     ```
-    Here is a Python script that reads a CSV and generates a scatter plot: @create_penguin_scatter.py
+    I have  a Python script that reads a CSV and generates a scatter plot named create_penguin_scatter.py .
 
     Modify the script to add error handling for these cases:
     - The CSV file does not exist or the path is wrong
@@ -39,7 +37,7 @@ These exercises use the standard [Palmer Penguins dataset](https://allisonhorst.
 
     Alternative prompt with less guidance on what error handling to include:
     ```
-    Here is a Python script that reads a CSV and generates a scatter plot: @create_penguin_scatter.py .
+    I have  a Python script that reads a CSV and generates a scatter plot named create_penguin_scatter.py .
 
     Modify the script to add error handling.  The script should print a clear, helpful error message 
     for each case and exit gracefully rather than crashing. Do not change the plotting logic.
@@ -63,6 +61,6 @@ These exercises use the standard [Palmer Penguins dataset](https://allisonhorst.
 
     Use pandas, matplotlib, and scipy. Add comments explaining each step.
 
-    Save the script in a new file called create_penguin_boxplot_stats.py in my @local_agent_test directory.
+    Save the script in a new file called create_penguin_boxplot_stats.py.
 
     ```
