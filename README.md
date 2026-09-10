@@ -68,7 +68,7 @@ VS Code is the integrated development environment (IDE) that we will focus on he
 
 Download and install VS Code from the official site: https://code.visualstudio.com/download
 
-Choose the installer for your operating system (Windows, macOS, or Linux). Run the installer and accept the default settings. When it asks whether to add VS Code to your PATH, say yes — this lets you open VS Code from the terminal with the `code` command.
+Choose the installer for your operating system (Windows, macOS, or Linux). Run the installer.  If the installer asks questions, accept the default settings, and if it asks whether to add VS Code to your PATH, say yes — this lets you open VS Code from the terminal with the `code` command.
 
 Open VS Code by double-clicking the blue VS Code icon, or searching your apps for VS Code.  Ensure that the app opens successfully.
 
@@ -86,16 +86,16 @@ If you do not already have Python installed (or are unsure if you do), please in
  
 Installers are available here:  https://github.com/conda-forge/miniforge/releases/latest — download the installer that matches your operating system (Windows, macOS, or Linux).
  
-Run the installer. The default settings are fine, with one exception: on the **Advanced Options** screen, check **"Add Miniforge3 to my PATH environment variable"**. This ensures Python and conda are accessible from the terminal.
+Run the installer. The default settings are fine.  If given the option, mark **"Add Miniforge3 to my PATH environment variable"** of **"Add conda initialization to the shell"**, which may be in the **Advanced Options** or **Customize** section. This ensures Python and conda are accessible from the terminal.
  
 > **Note:** The installer may warn that adding to PATH is not recommended — you can safely ignore this for our purposes.
  
 Once installed, open a new terminal in VS Code (``Ctrl+` `` or **Terminal → New Terminal** and see [documentation here](https://code.visualstudio.com/docs/terminal/basics)) and execute the following command:
 ```bash
-python --version
+python
 ```
  
-This should print the version number.  If this returns an error, you may need to close and reopen VS Code and try `python --version` again.
+This should start Python and print information about the installation.  Check that you see text similar to **"packaged by conda-forge"**.  You can type `quit()` and the `enter` key to exit this Python session.  If this returns an error, you may need to close and reopen VS Code and try `python` again.
 
  
 > **Want to learn more about managing Python environments with conda?** We run a separate workshop on this topic — ask us for details.
@@ -118,7 +118,7 @@ Official docs: https://docs.claude.com/en/docs/claude-code/overview
 
 ### A.1 Windows: Git for Windows (Optional but Recommended)
 
-> **macOS / Linux users:** This step is Windows-specific — macOS and Linux already come with a native Bash-compatible shell, so Claude Code can use its Bash tool directly without a separate Git Bash. Skip this step. (Note that git itself isn't necessarily pre-installed on macOS or Linux either: on macOS, running a `git` command for the first time prompts you to install the Xcode Command Line Tools, which include git; on Linux, install it via your distribution's package manager, e.g. `sudo apt install git`. Either way, it's not required for this workshop.)
+> **macOS / Linux users:** This step is Windows-specific — macOS and Linux already come with a native Bash-compatible shell, so Claude Code can use its Bash tool directly without a separate Git Bash. Skip this step. (Note that git itself isn't necessarily pre-installed on macOS or Linux either: on macOS, running a `git` command for the first time prompts you to install the Xcode Command Line Tools, which include git; on Linux, install it via your distribution's package manager, e.g. `sudo apt install git`. `git` is not required for this workshop, but is highly recommended, especially when working with coding agents.)
 
 On native Windows, Claude Code does not strictly require **Git for Windows** — without it, Claude Code falls back to a native PowerShell tool for running shell commands. Installing Git for Windows is still recommended, though: it gives Claude Code access to **Git Bash**, which lets it (and you) run the same Bash commands used on macOS/Linux. If you'd like this, navigate to this website https://git-scm.com , click the "Install for Windows" button and download the "Standalone Installer".  Run the installer with default settings, making sure **"Add Git to PATH"** is checked (it should be already checked by default).  
 
@@ -205,7 +205,7 @@ Ollama on its own only gets you a model — you still need a "harness" installed
 
 Navigate in your browser to : https://ollama.com/download
 
-Download and install the version for your operating system. On native Windows and macOS, the installer sets up Ollama as a background service that starts automatically.  (If you are working in Linux or WSL, you may need to start ollama manually with `ollama serve`; we will be happy to provide further instructions and help there if needed.)
+Download and install the version for your operating system. If Ollama does not start on it's own after installation, click on the icon to start Ollama running.  On Windows and macOS,  Ollama runs as a background service that starts automatically.  (If you are working in Linux or WSL, you may need to start ollama manually with `ollama serve`; we will be happy to provide further instructions and help there if needed.)
 
 Verify the installation by executing the following command in your VS Code terminal:
 ```bash
@@ -222,7 +222,7 @@ Run this command to download the chat/agent model we'll use in this workshop (it
 ollama pull qwen3.5:9b
 ```
 
-You can see all your downloaded models at any time by executing `ollama list` in your terminal.
+If this command gets interrupted, you can safely run it again in a new terminal; the download should pick up where it left off.  You can see all your downloaded models at any time by executing `ollama list` in your terminal.
 
 To explore other models, visit https://ollama.com/search. Look for the **Tools** tag if you want a model that works in agent mode (tool-calling required).  Before downloading a new model, be sure to check that your computer can fit the model in VRAM.  One other lightweight model you may want to explore is `qwen2.5-coder:1.5b`, a small code-focused model good for quick code completion tasks (`ollama pull qwen2.5-coder:1.5b`).
 
@@ -274,8 +274,19 @@ Marketplace link: https://marketplace.visualstudio.com/items?itemName=GitHub.cop
 After installing, you may be prompted to sign in with your GitHub account. You do not need to log into GitHub for this workshop, though if you do sign in, and depending on your GitHub account, **you may have access to cloud models through GitHub Copilot Chat** as well (see [Usage Limits and System Requirements](#usage-limits-and-system-requirements) for how account type affects which models are available). 
 
 
-**Connect Ollama to Copilot Chat:** VS Code's GitHub Copilot Chat can use your local Ollama models through its built-in model picker.  The first time you use an Ollama model here, you may need to follow these steps for the initial setup.
+**Connect Ollama to Copilot Chat:** VS Code's GitHub Copilot Chat can use your local Ollama models through its built-in model picker.  The first time you use an Ollama model here, you may need to follow one of these steps for the initial setup.
 
+**Automatic setup (recommended):**
+
+1. Close VS Code if it is open
+2. Open a terminal (not in VS Code), and execute the command 
+    ```
+    ollama launch vscode
+    ```
+3. Ollama will show you a list of models to choose from.  You should see our workshop model in the list, probably at the bottom.  Select our workshop model.
+4. VS Code will then open with your ollama model active the the Chat section.
+
+**Manual setup (and for changing models later)**
 
 1. Open the **Copilot Chat** panel from the top-right corner of VS Code (the chat bubble icon).
 2. Click the **Pick Model** button in the bottom of the chat panel (which is likely populated by either "Auto" or a model name).  This will open a menu; click the gear icon next to the "Other Models" (possibly named "Manage Models" instead) to open the Language Models window.

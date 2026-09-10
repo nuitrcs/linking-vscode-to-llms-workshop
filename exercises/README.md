@@ -22,9 +22,11 @@ These exercises use the standard [Palmer Penguins dataset](https://allisonhorst.
     Save the script in a new file called create_penguin_scatter.py.
     ```
 
+    (In order to run the script your model generates, you will need Python and all the packages the script calls installed, likely `pandas`, `matplotlib` and `seaborn`.  If you installed Python through miniforge, you can install these packages using the terminal command `conda install pandas matplotlib seaborn`, ideally in a new conda environment.)
+
 2. Ask the agent to add error handling to that existing script.  This exercise will test the agent's ability to interpret an existing Python script, make choices on how to implement tests, and use Tools to modify a file.  If you are using a local ollama LLM, you may benefit from starting a new conversation for this exercise to free up more context space.  Evaluate the resulting code yourself, and run it to check if the error handling works. 
     ```
-    I have  a Python script that reads a CSV and generates a scatter plot named create_penguin_scatter.py .
+    I have a Python script named create_penguin_scatter.pythat reads a CSV file and generates a scatter plot.
 
     Modify the script to add error handling for these cases:
     - The CSV file does not exist or the path is wrong
@@ -37,7 +39,7 @@ These exercises use the standard [Palmer Penguins dataset](https://allisonhorst.
 
     Alternative prompt with less guidance on what error handling to include:
     ```
-    I have  a Python script that reads a CSV and generates a scatter plot named create_penguin_scatter.py .
+    I have a Python script named create_penguin_scatter.py that reads a CSV file and generates a scatter plot.
 
     Modify the script to add error handling.  The script should print a clear, helpful error message 
     for each case and exit gracefully rather than crashing. Do not change the plotting logic.
