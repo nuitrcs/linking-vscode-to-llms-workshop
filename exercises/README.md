@@ -53,12 +53,9 @@ These exercises use the standard [Palmer Penguins dataset](https://allisonhorst.
     Write a Python script that:
     - Reads the CSV and filters to only Adelie and Chinstrap species
     - Creates a boxplot of flipper_length_mm for each species
-    - Runs an independent samples t-test (scipy.stats.ttest_ind) comparing 
-    the two groups
-    - Annotates the plot with the p-value and significance stars using this 
-    convention: *** p<0.001, ** p<0.01, * p<0.05, ns p>=0.05
-    - Draws a horizontal bracket above the two boxes with the annotation 
-    centered over it
+    - Runs an independent samples t-test (scipy.stats.ttest_ind) comparing the two groups
+    - Annotates the plot with the p-value and significance stars using this convention: *** p<0.001, ** p<0.01, * p<0.05, ns p>=0.05
+    - Draws a horizontal bracket above the two boxes with the annotation centered over it
     - Saves the figure as penguins_boxplot_ttest.png
 
     Use pandas, matplotlib, and scipy. Add comments explaining each step.
