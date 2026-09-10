@@ -286,7 +286,7 @@ After installing, you may be prompted to sign in with your GitHub account. You d
 3. Ollama will show you a list of models to choose from.  You should see our workshop model in the list, probably at the bottom.  Select our workshop model.
 4. VS Code will then open with your ollama model active the the Chat section.
 
-**Manual setup (and for changing models later)**
+**Manual setup (and for changing models later):**
 
 1. Open the **Copilot Chat** panel from the top-right corner of VS Code (the chat bubble icon).
 2. Click the **Pick Model** button in the bottom of the chat panel (which is likely populated by either "Auto" or a model name).  This will open a menu; click the gear icon next to the "Other Models" (possibly named "Manage Models" instead) to open the Language Models window.

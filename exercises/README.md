@@ -26,7 +26,7 @@ These exercises use the standard [Palmer Penguins dataset](https://allisonhorst.
 
 2. Ask the agent to add error handling to that existing script.  This exercise will test the agent's ability to interpret an existing Python script, make choices on how to implement tests, and use Tools to modify a file.  If you are using a local ollama LLM, you may benefit from starting a new conversation for this exercise to free up more context space.  Evaluate the resulting code yourself, and run it to check if the error handling works. 
     ```
-    I have a Python script named create_penguin_scatter.pythat reads a CSV file and generates a scatter plot.
+    I have a Python script named create_penguin_scatter.py that reads a CSV file and generates a scatter plot.
 
     Modify the script to add error handling for these cases:
     - The CSV file does not exist or the path is wrong
