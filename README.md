@@ -2,6 +2,24 @@
 
 Get your development environment ready to take full advantage of today’s AI coding assistants. In this hands-on workshop, you’ll learn how to connect VS Code to both cloud-based models (including Claude Code and GitHub Copilot) and locally hosted models using Ollama, giving you control over performance, cost, and data privacy. Through guided exploration, you’ll compare local and cloud approaches, building a clear understanding of when each is most effective and how to incorporate them into your everyday coding workflow.
 
+# Why work this way? Advantages of an in-editor coding agent
+
+You can already talk to an LLM by pasting code into a chat window in your browser. So why bother connecting VS Code to Claude Code, GitHub Copilot Chat, or Ollama instead? A few reasons:
+
+- No more copy-pasting code back and forth between browser-based chat and code files.*
+- It sees your whole project, not just one snippet. 
+- It can act, not just talk.
+- Multi-file changes happen together.
+- You can choose local/private models.
+
+And why VS Code specifically, rather than another app?
+
+- It's free and runs on all operating systems.
+- It has official extensions for many AI tools (including those in this workshop), and huge extension ecosystem beyond AI.
+- It's the most widely used editor, so it's also the most widely supported.
+- Built-in terminal and git integration.
+- Lightweight and fast.
+
 # Installation instructions
 
 This guide walks you through setting up a complete AI development environment on your computer working through VS Code.  We will start with setting up the foundation, and then there are many options of which AI tool(s) you can explore.
@@ -78,7 +96,7 @@ Within VS Code, there are many "Extensions" that extend the software's functiona
 
 
 
-## 3. Install Python via Miniforge 
+## 3. (Optional but recommended) Install Python via Miniforge 
  
 > **macOS / Linux users:** Python should be available by default on your system. Therefore you have the option to skip this step.  However you may benefit from using this version of Python rather than your system Python if you plan to code heavily.
 
@@ -86,7 +104,7 @@ If you do not already have Python installed (or are unsure if you do), please in
  
 Installers are available here:  https://github.com/conda-forge/miniforge/releases/latest — download the installer that matches your operating system (Windows, macOS, or Linux).
  
-Run the installer. The default settings are fine.  If given the option, mark **"Add Miniforge3 to my PATH environment variable"** of **"Add conda initialization to the shell"**, which may be in the **Advanced Options** or **Customize** section. This ensures Python and conda are accessible from the terminal.
+Run the installer. The default settings are fine.  If given the option, mark **"Add Miniforge3 to my PATH environment variable"** or **"Add conda initialization to the shell"**, which may be in the **Advanced Options** or **Customize** section. This ensures Python and conda are accessible from the terminal.
  
 > **Note:** The installer may warn that adding to PATH is not recommended — you can safely ignore this for our purposes.
  
@@ -205,7 +223,7 @@ Ollama on its own only gets you a model — you still need a "harness" installed
 
 Navigate in your browser to : https://ollama.com/download
 
-Download and install the version for your operating system. If Ollama does not start on it's own after installation, click on the icon to start Ollama running.  On Windows and macOS,  Ollama runs as a background service that starts automatically.  (If you are working in Linux or WSL, you may need to start ollama manually with `ollama serve`; we will be happy to provide further instructions and help there if needed.)
+Download and install the version for your operating system. If Ollama does not start on its own after installation, click on the icon to start Ollama running.  On Windows and macOS,  Ollama runs as a background service that starts automatically.  (If you are working in Linux or WSL, you may need to start ollama manually with `ollama serve`; we will be happy to provide further instructions and help there if needed.)
 
 Verify the installation by executing the following command in your VS Code terminal:
 ```bash
@@ -224,23 +242,22 @@ ollama pull qwen3.5:9b
 
 If this command gets interrupted, you can safely run it again in a new terminal; the download should pick up where it left off.  You can see all your downloaded models at any time by executing `ollama list` in your terminal.
 
-To explore other models, visit https://ollama.com/search. Look for the **Tools** tag if you want a model that works in agent mode (tool-calling required).  Before downloading a new model, be sure to check that your computer can fit the model in VRAM.  One other lightweight model you may want to explore is `qwen2.5-coder:1.5b`, a small code-focused model good for quick code completion tasks (`ollama pull qwen2.5-coder:1.5b`).
+To explore other models, visit https://ollama.com/search. Look for the **Tools** tag if you want a model that works in agent mode (tool-calling required).  Before downloading a new model, be sure to check that your computer can fit the model in VRAM.  
 
-### B.3 Create the Workshop Model with Extended Context Length
+If the `qwen3.5:9b` model is too large or is taking too long for you to download, you can try a lightweight version of this model family via `ollama pull qwen3.5:0.8b`.
 
-By default, `qwen3.5:9b` runs with a fairly small context window, which can be limiting for agentic tasks that involve reading several files or a long conversation. This workshop's repository includes a `workshop-qwen3.5-modelfile` file, which builds on `qwen3.5:9b` but raises its context window to 32k tokens:
 
-```
-FROM qwen3.5:9b
-PARAMETER num_ctx 32768
-```
 
-From a terminal in this repository's folder, run the following command to create a new local model, `qwen3.5-workshop`, based on this file:
+### B.3 (Optional but recommended) Create the Workshop Model with 64k Context Length
+
+By default, `qwen3.5:9b` may run in ollama with a relatively small context window, which can be limiting for agentic tasks that involve reading several files or a long conversation. This workshop's repository includes a `workshop-qwen3.5-modelfile` file, which builds on `qwen3.5:9b` and sets its context window to 64k tokens. From a terminal in this repository's folder, run the following command to create a new local model, `qwen3.5-workshop`, based on this file:
 ```bash
 ollama create qwen3.5-workshop -f workshop-qwen3.5-modelfile
 ```
 
-Run `ollama list` again afterward — you should now see `qwen3.5-workshop` alongside `qwen3.5:9b`. Use `qwen3.5-workshop` for the rest of this workshop.
+Run `ollama list` again afterward — you should now see `qwen3.5-workshop` alongside `qwen3.5:9b`. Use `qwen3.5-workshop` for the rest of this workshop.  
+
+(If you want at different context size, you can change the number at the end of the second line in the file, to change the `num_ctx` parameters, and then run the `ollama create` command again to generate a new model.)
 
 ### B.4 Test Ollama
 
@@ -284,7 +301,7 @@ After installing, you may be prompted to sign in with your GitHub account. You d
     ollama launch vscode
     ```
 3. Ollama will show you a list of models to choose from.  You should see our workshop model in the list, probably at the bottom.  Select our workshop model.
-4. VS Code will then open with your ollama model active the the Chat section.
+4. VS Code will then open with your ollama model active in the Chat section.
 
 **Manual setup (and for changing models later):**
 
