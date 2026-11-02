@@ -2,6 +2,12 @@
 
 Get your development environment ready to take full advantage of today’s AI coding assistants. In this hands-on workshop, you’ll learn how to connect VS Code to both cloud-based models (including Claude Code and GitHub Copilot) and locally hosted models using Ollama, giving you control over performance, cost, and data privacy. Through guided exploration, you’ll compare local and cloud approaches, building a clear understanding of when each is most effective and how to incorporate them into your everyday coding workflow.
 
+## Workshop Outline
+
+1. Review the remainder of this file.
+2. Install the software, following the [installation instructions](installation_instructions.md).
+3. Work through the [exercises](exercises/README.md) and discuss.
+
 ## Why work this way? Advantages of an in-editor coding agent
 
 You can already talk to an LLM by pasting code into a chat window in your browser. So why bother connecting VS Code to Claude Code, GitHub Copilot Chat, or Ollama instead? A few reasons:
