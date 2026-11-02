@@ -10,8 +10,7 @@ This guide walks you through setting up a complete AI development environment on
   - [Option A: Claude Code (full agent)](#option-a-claude-code-full-agent)
   - [Option B: Ollama (local models) with GitHub Copilot Chat (harness)](#option-b-ollama-local-models-with-github-copilot-chat)
 - [Troubleshooting](#troubleshooting)
-- [Usage Limits and System Requirements](#usage-limits-and-system-requirements)
-- [Useful Links](#useful-links)
+
 
 
 <br/><br/>
