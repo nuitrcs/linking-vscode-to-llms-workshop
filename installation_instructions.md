@@ -8,7 +8,7 @@ This guide walks you through setting up a complete AI development environment on
 - [Required steps](#required-steps)
 - [Optional steps (choose at least one)](#optional-steps-choose-at-least-one)
   - [Option A: Claude Code (full agent)](#option-a-claude-code-full-agent)
-  - [Option B: Ollama (local models) with GitHub Copilot Chat (harness)](#option-b-ollama-local-models-with-github-copilot-chat)
+  - [Option B: Ollama (local models) with GitHub Copilot Chat (harness)](#option-b-ollama-local-models-with-github-copilot-chat-harness)
 - [Troubleshooting](#troubleshooting)
 
 
@@ -278,7 +278,7 @@ GitHub Copilot Chat is well integrated into VS Code and may be displayed in your
 
 Marketplace link: https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat
 
-After installing, you may be prompted to sign in with your GitHub account. You do not need to log into GitHub for this workshop, though if you do sign in, and depending on your GitHub account, **you may have access to cloud models through GitHub Copilot Chat** as well (see [Usage Limits and System Requirements](#usage-limits-and-system-requirements) for how account type affects which models are available). 
+After installing, you may be prompted to sign in with your GitHub account. You do not need to log into GitHub for this workshop, though if you do sign in, and depending on your GitHub account, **you may have access to cloud models through GitHub Copilot Chat** as well (see [Usage Limits and System Requirements](README.md#usage-limits-and-system-requirements) for how account type affects which models are available). 
 
 **Connect Ollama to Copilot Chat:** VS Code's GitHub Copilot Chat can use your local Ollama models through its built-in model picker.  The first time you use an Ollama model here, you may need to follow one of these steps for the initial setup.
 
@@ -340,6 +340,6 @@ You may be running on CPU instead of GPU. This is okay for the workshop but expe
 Try a smaller model, or a smaller context window (see the note below).
 
 **Ollama model seems to "forget" earlier parts of the conversation, or behaves oddly on longer/multi-file tasks:**
-This usually means you've run out of context (the model's short-term memory window). Follow the procedure in [B.3: Create the Workshop Model with Extended Context Length](#b3-create-the-workshop-model-extended-context) to build a custom model with a larger `num_ctx` in its Modelfile — you can raise it further (or lower it if you're running out of memory) by editing the `PARAMETER num_ctx` value and re-running `ollama create` with a new model name.
+This usually means you've run out of context (the model's short-term memory window). Follow the procedure in [B.3: Create the Workshop Model with 64k Context Length](#b3-create-the-workshop-model-with-64k-context-length-optional-but-recommended) to build a custom model with a larger `num_ctx` in its Modelfile — you can raise it further (or lower it if you're running out of memory) by editing the `PARAMETER num_ctx` value and re-running `ollama create` with a new model name.
 
 </details>

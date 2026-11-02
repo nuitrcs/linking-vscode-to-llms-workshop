@@ -25,7 +25,7 @@ And why VS Code specifically, rather than another app?
 ### A few terms used throughout this guide
 
 - **IDE** ("Integrated Development Environment"): the editor application you write and run code in. For this workshop, we'll use **VS Code**.
-- **Harness**: the interface/tool that runs an AI agent and connects it to your IDE. We provide setup instructions for two harnesses: **Claude Code** and **GitHub Copilot Chat**. (There are many other harnesses out there — see [Other Harnesses to Explore](#other-harnesses-to-explore) for a couple more worth trying.)
+- **Harness**: the interface/tool that runs an AI agent and connects it to your IDE. We provide setup instructions for two harnesses: **Claude Code** and **GitHub Copilot Chat**. (There are many other harnesses out there — see [Other Harnesses to Explore](installation_instructions.md#other-harnesses-to-explore) for a couple more worth trying.)
 - **AI model**: the underlying LLM that actually generates responses within a harness. We provide instructions for **Claude** (Anthropic's cloud models) as well as local models run through **Ollama**.
 - **Coding agent**: the combination of a harness and an AI model, acting together to read/write code, run commands, and complete tasks. When we say "AI coding assistant," we mean a coding agent.
 
@@ -76,14 +76,14 @@ Cloud-based coding agents are metered and require an internet connection — run
 
 - **GitHub Copilot Chat:** Usage limits (including which models are available and how many "premium requests" you get) depend on your GitHub account type and plan. Check your usage under your GitHub account's Copilot settings, and be aware that some models may consume your quota faster than others.
 
-- **Ollama (local models):** Since these models run entirely on your own computer, there are no usage limits and no per-token charges — the only constraints are your hardware's speed and memory (see the VRAM note in [Option B](#option-b-ollama-local-models-with-github-copilot-chat)).
+- **Ollama (local models):** Since these models run entirely on your own computer, there are no usage limits and no per-token charges — the only constraints are your hardware's speed and memory (see the VRAM note in [Option B](installation_instructions.md#option-b-ollama-local-models-with-github-copilot-chat-harness)).
 
 **Quick reference:**
 
 | Tool | Account needed | Cost | Internet required? |
 |------|-----------------|------|---------------------|
 | Claude Code | Paid Anthropic account (Pro, Max, or API) | Usage-based; may bill per token if you exceed your plan's included usage | Yes |
-| GitHub Copilot Chat | Free GitHub account (free tier is sufficient for this workshop) | Free tier available; paid tiers unlock more usage/models | Yes, unless routed to a local Ollama model (see [Option B.6](#b6-github-copilot-chat-with-ollama)) |
+| GitHub Copilot Chat | Free GitHub account (free tier is sufficient for this workshop) | Free tier available; paid tiers unlock more usage/models | Yes, unless routed to a local Ollama model (see [Option B.6](installation_instructions.md#b6-github-copilot-chat-with-ollama)) |
 | Ollama (local models) | None | Free — but you supply the hardware (RAM/VRAM, disk space) | No, once models are downloaded |
 
 </details>
