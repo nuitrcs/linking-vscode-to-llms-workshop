@@ -5,8 +5,8 @@ This guide walks you through setting up a complete AI development environment on
 
 **Contents:**
 
-- [Required steps](#required-steps)
-- [Optional steps (choose at least one)](#optional-steps-choose-at-least-one)
+- [Initial setup](#initial-setup)
+- [Agent setup (choose at least one)](#agent-setup-choose-at-least-one)
   - [Option A: Claude Code (full agent)](#option-a-claude-code-full-agent)
   - [Option B: Ollama (local models) with GitHub Copilot Chat (harness)](#option-b-ollama-local-models-with-github-copilot-chat-harness)
 - [Troubleshooting](#troubleshooting)
@@ -15,7 +15,7 @@ This guide walks you through setting up a complete AI development environment on
 
 <br/><br/>
 
-# Required steps
+# Initial setup
 
 ## 1. Create a free GitHub account (optional but recommended) 
 
@@ -103,7 +103,7 @@ If VS Code asks you to select a Python interpreter when you open a `.py` file, c
 
 <br/><br/>
 
-# Optional steps (choose at least one)
+# Agent setup (choose at least one)
 
 The following sections provide instructions on how to install and access different AI coding agents.  You can install both of these and test for yourself which solution is best.  You are also welcome to only install one (or just one at a time).  Note that Ollama (Option B) is only for accessing AI models — it needs to be paired with a harness (we walk through GitHub Copilot Chat) to actually talk to it.
 
