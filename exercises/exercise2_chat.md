@@ -18,6 +18,9 @@ If you can, repeat the questions with two different models (for example, a local
    ```
    In a few sentences, what does this script do?
    ```
+
+   *Note:* If you are using a local Ollama model, it may take a while for the response to come back.  The model may first need to load onto your hardware before processing your request.  
+
 3. Ask for more detail:
    ```
    Walk me through this script step by step.  Assume I know basic Python but have never used scipy.
