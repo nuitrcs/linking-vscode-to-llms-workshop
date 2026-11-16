@@ -3,7 +3,7 @@
 In this exercise you use the **chat** window as a knowledgeable tutor.  You will ask the model to explain code and data, but you will **not** ask it to change any files.
 
 You can use any of the tools you installed.  The goal is not to find the "best" one, but to notice what each does well:
-- **GitHub Copilot Chat:** open the chat panel and select **Ask** mode (not Agent mode).  Choose either a cloud model or your local Ollama model in the model picker.
+- **GitHub Copilot Chat:** open the chat panel and select **Ask** mode (not Agent mode).  Choose either a cloud model or your local Ollama model in the model picker.  To use a local model, you may have to click on the "Copilot" icon below the chat interface, and switch to the Local harness.
 - **Claude Code:** open the Claude Code panel.  You can ask questions without allowing any edits.
 
 If you can, repeat the questions with two different models (for example, a local Ollama model and a cloud model) and compare the answers.
