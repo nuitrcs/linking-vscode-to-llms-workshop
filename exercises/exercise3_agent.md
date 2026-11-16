@@ -2,13 +2,13 @@
 
 In the previous exercise (chat), the model only *talked*.  In **agent mode**, the model can also *act*: it can create and edit files, and run terminal commands, to complete a task.  That makes agents much more powerful, and much more important to supervise.
 
-> **Before you start:** keep the "ask before acting" setting on, which is called **Manual permissions** in Copilot Chat and **Manual** in Claude Code (see the Safety section of the main workshop README).  Each time the agent proposes to edit a file or run a command, **read** the proposal before you approve it.  Notice whether the agent only touches the files you expect.
+> **Before you start:** keep the "ask before acting" setting on, which is called **Manual permissions** (Copilot harness) or **Default Permissions** (Local harness, used with Ollama) in Copilot Chat, and **Manual** in Claude Code (see the Safety section of the main workshop README).  Each time the agent proposes to edit a file or run a command, **read** the proposal before you approve it.  Notice whether the agent only touches the files you expect.
 
 **Setup:** open your **working copy** of the exercises (see [Setup](README.md#setup-make-your-own-working-copy)) in VS Code, so that the agent works in that folder and can find `penguins.csv`.  In Copilot Chat, choose **Agent** mode (not Ask).  In Claude Code, check the mode indicator at the bottom of the prompt box, and switch it to **Manual** if it shows something else.
 
 > **Two different settings, both called "ask":**
 > - **Ask mode** (Copilot Chat's mode picker) is chat-only: the model *cannot* edit files.  This is what you used in Exercise 2.  For this exercise, and for Exercise 4, switch to **Agent** mode.  (To go back to chatting only, switch the mode picker back to Ask.)
-> - **Manual permissions** (Copilot Chat's permissions picker) or **Manual** (Claude Code's mode indicator) means the agent *can* edit, but pauses for your approval first.  Keep this on for every exercise.  Do **not** use higher levels such as **Allow all**, **Autopilot**, **Auto**, **Edit automatically**, or **Bypass permissions**.
+> - **Manual permissions** (Copilot harness) or **Default Permissions** (Local harness, used with Ollama) in Copilot Chat's permissions picker, or **Manual** in Claude Code's mode indicator, means the agent *can* edit, but pauses for your approval first.  Keep this on for every exercise.  Do **not** use higher levels such as **Allow all**, **Autopilot**, **Auto**, **Edit automatically**, or **Bypass permissions**.
 
 This file provides a series of tasks meant to test your LLM coding agents.   Each task uses the same data file and asks for increasingly harder things.  For each task, I provide a starting prompt.  Please start with this, but feel free to modify the prompt afterwards as necessary to try to achieve the desired result.  Try these exercises with different LLM agents (both local and cloud) to get a better understanding of their capabilities and limitations.
 

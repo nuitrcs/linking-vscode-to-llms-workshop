@@ -6,7 +6,7 @@ Throughout this exercise, remember that `git` is your safety net: as long as you
 
 **Setup:** open your **working copy** of the exercises (see [Setup](README.md#setup-make-your-own-working-copy)) in VS Code.  It is a `git` repository, with `penguin_summary_buggy.py` saved in the original, buggy form in your "Starting point" commit.
 
-As in Exercise 3, use **Agent** mode (not Ask mode, which cannot edit files) and keep **Manual** permissions on (Manual permissions in Copilot Chat, Manual in Claude Code), so that the agent's edits are shown to you for approval.  Parts B and D rely on this: the review happens *before* you accept.
+As in Exercise 3, use **Agent** mode (not Ask mode, which cannot edit files) and keep the "ask before acting" setting on (in Copilot Chat, **Manual permissions** in the Copilot harness or **Default Permissions** in the Local harness, used with Ollama; **Manual** in Claude Code), so that the agent's edits are shown to you for approval.  Parts B and D rely on this: the review happens *before* you accept.
 
 
 ## Part A: Look at the bug fix from Exercise 3
