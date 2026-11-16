@@ -51,7 +51,26 @@ Within VS Code, there are many "Extensions" that extend the software's functiona
 
 </details>
 
-## 3. Install Python via Miniforge (optional but recommended) 
+## 3. Install Git (optional but recommended)
+
+<details>
+<summary><b><i>👉 Click to show / hide</i></b></summary>
+
+
+`git` is a version control tool that tracks changes to your files.  It is not required for this workshop, but it is highly recommended, especially when working with coding agents: it lets you see exactly what an agent changed and undo those changes if needed (Exercise 4 uses `git` for this).  VS Code has `git` support built in (the **Source Control** panel), but it needs `git` itself to be installed on your computer.
+
+**On Windows**, install **Git for Windows**: navigate to https://git-scm.com , click the "Install for Windows" button and download the "Standalone Installer".  Run the installer with default settings, making sure **"Add Git to PATH"** is checked (it should be already checked by default).  In addition to `git`, this installs **Git Bash**, a Bash terminal for Windows.  Git Bash lets you (and your coding agent) run the same Bash commands used on macOS/Linux, and it appears as a terminal option in VS Code.  Claude Code will use Git Bash if it is installed (without it, Claude Code falls back to PowerShell).
+
+**On macOS / Linux**, you already have a Bash-compatible shell, but `git` itself isn't necessarily pre-installed.  On macOS, running a `git` command (e.g., `git --version`) in a terminal for the first time prompts you to install the Xcode Command Line Tools, which include `git`.  On Linux, install it via your distribution's package manager, e.g. `sudo apt install git`.
+
+To check that `git` is installed, open a new terminal in VS Code (you may need to restart VS Code first) and run:
+```bash
+git --version
+```
+
+</details>
+
+## 4. Install Python via Miniforge (optional but recommended) 
 
 <details>
 <summary><b><i>👉 Click to show / hide</i></b></summary>
@@ -79,12 +98,12 @@ This should start Python and print information about the installation.  Check th
 
 </details>
 
-## 4. Install Python packages for the exercises (optional but recommended)
+## 5. Install Python packages for the exercises (optional but recommended)
 
 <details>
 <summary><b><i>👉 Click to show / hide</i></b></summary>
 
-The exercises in this workshop ask the AI to write Python code that reads data and makes plots.  To run that code yourself, you will need a few Python packages: `pandas`, `matplotlib`, `seaborn`, and `scipy`.  If you installed Python through Miniforge (step 3), we recommend creating a new conda environment for the workshop.  Run these commands in a terminal:
+The exercises in this workshop ask the AI to write Python code that reads data and makes plots.  To run that code yourself, you will need a few Python packages: `pandas`, `matplotlib`, `seaborn`, and `scipy`.  If you installed Python through Miniforge (step 4), we recommend creating a new conda environment for the workshop.  Run these commands in a terminal:
 ```bash
 conda create -n workshop python pandas matplotlib seaborn scipy
 conda activate workshop
@@ -122,13 +141,7 @@ Claude Code is a command-line tool that acts as an AI coding agent in your termi
 
 Official docs: https://docs.claude.com/en/docs/claude-code/overview
 
-### A.1 Windows: Git for Windows (optional but recommended)
-
-> **macOS / Linux users:** This step is Windows-specific — macOS and Linux already come with a native Bash-compatible shell, so Claude Code can use its Bash tool directly without a separate Git Bash. Skip this step. (Note that git itself isn't necessarily pre-installed on macOS or Linux either: on macOS, running a `git` command for the first time prompts you to install the Xcode Command Line Tools, which include git; on Linux, install it via your distribution's package manager, e.g. `sudo apt install git`. `git` is not required for this workshop, but is highly recommended, especially when working with coding agents.)
-
-On native Windows, Claude Code does not strictly require **Git for Windows** — without it, Claude Code falls back to a native PowerShell tool for running shell commands. Installing Git for Windows is still recommended, though: it gives Claude Code access to **Git Bash**, which lets it (and you) run the same Bash commands used on macOS/Linux. If you'd like this, navigate to this website https://git-scm.com , click the "Install for Windows" button and download the "Standalone Installer".  Run the installer with default settings, making sure **"Add Git to PATH"** is checked (it should be already checked by default).  
-
-### A.2 Install Claude Code
+### A.1 Install Claude Code
 
 **On macOS / Linux**, run in your terminal:
 ```bash
@@ -142,7 +155,7 @@ irm https://claude.ai/install.ps1 | iex
  
 > **Windows users:** To open PowerShell in VS Code, open a new terminal (`` Ctrl+` ``) and select **PowerShell** from the dropdown (the `∨` arrow next to the `+` in the terminal panel).
 
-### A.3 Verify the Installation
+### A.2 Verify the Installation
 
 Close and reopen your terminal, then run:
 ```bash
@@ -169,7 +182,7 @@ source ~/.bashrc
 
 Then try `claude --version` again in your terminal.
 
-### A.4 Authenticate
+### A.3 Authenticate
 
 Run Claude Code for the first time, by executing this command in your terminal:
 ```bash
@@ -178,13 +191,13 @@ claude
  
 It will open a browser window asking you to log in with your Anthropic account. Follow the prompts to authenticate. The browser will give you a one-time code to paste back into the terminal — do this promptly as it expires quickly.
 
-### A.5 Using Claude Code in VS Code
+### A.4 Using Claude Code in VS Code
 
 Once authenticated, Claude Code can run in VS Code's integrated terminal or via the Claude Code extension (see below). You may want to try both options to see what works best with your workflow.
 
 To run from the command line, open a terminal in VS Code (`` Ctrl+` `` or **Terminal → New Terminal**), navigate to your project folder, and type `claude` to start a session.
 
-### A.6 Install the Claude Code Extension for VS Code
+### A.5 Install the Claude Code Extension for VS Code
 
 Claude may have already installed this extension during the previous steps.  Search for **"Claude Code for VS Code"** in the extensions panel.  The publisher should be **Anthropic** .  
 

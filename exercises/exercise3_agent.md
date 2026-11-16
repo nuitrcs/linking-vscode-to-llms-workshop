@@ -32,7 +32,7 @@ These exercises use the standard [Palmer Penguins dataset](https://allisonhorst.
     Save the script in a new file called create_penguin_scatter.py.
     ```
 
-    (In order to run the script your model generates, you will need Python and the packages the script calls, likely `pandas`, `matplotlib` and `seaborn`.  See step 4 of the [installation instructions](../installation_instructions.md) if you haven't installed these yet.  If the agent offers to install packages for you, decline, and install them yourself.)
+    (In order to run the script your model generates, you will need Python and the packages the script calls, likely `pandas`, `matplotlib` and `seaborn`.  See step 5 of the [installation instructions](../installation_instructions.md) if you haven't installed these yet.  If the agent offers to install packages for you, decline, and install them yourself.)
 
 2. **Task 2.** Ask the agent to add error handling to that existing script.  This exercise will test the agent's ability to interpret an existing Python script, make choices on how to implement tests, and use Tools to modify a file.  If you are using a local Ollama LLM, you may benefit from starting a new conversation for this exercise to free up more context space.  Evaluate the resulting code yourself, and run it to check if the error handling works. 
     ```
